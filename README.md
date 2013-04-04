@@ -7,9 +7,9 @@ allowing you to use whatever editor you'd like and see the results immediately.
 
 Features
 --------
-* Cross Platform
-* Updates when the file is changed
-* Stylesheet support
+* Cross platform
+* Automatically updates when the file is changed
+* CSS support
 
 Dependencies
 ------------
@@ -19,18 +19,19 @@ Dependencies
 
 Usage
 -----
-  ```
-  $ python MarkdownViewer.py <file>
-  ```
+```
+$ python MarkdownViewer.py <file>
+```
 
-  To automatically open a Markdown file with this viewer in Windows, associate
-  the filetype with the included .bat file. You can apply styles by dropping
-  your stylesheets in the stylesheets/ directory next to this script and
-  selecting one from the Style menu.
+To automatically open a Markdown file with this viewer in Windows, associate
+the filetype with the included .bat file. You can apply styles by dropping
+your stylesheets in the stylesheets/ directory next to this script then
+selecting one from the Style menu.
 
 Contributing
 ------------
-Feel free to make improvements. Fork and send me a pull request.
+Feel free to make improvements. Fork and send me a pull request. Don't forget
+to add your name to the Contributors section of this document.
 
 Credit
 ------
@@ -39,3 +40,24 @@ The bundled style came from [here](https://github.com/simonlc/Markdown-CSS).
 More Info
 ---------
 Learn more about Markdown and the Markdown syntax [here](http://daringfireball.net/projects/markdown/).
+
+Unicode
+-------
+This tool supports UTF-8 encoded files (❍ ❑ ■ □ ☐ ▪ ▫ – — ≡ → ›). Consequently,
+it also supports ASCII files.
+
+License
+-------
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+Contributors
+------------
+Matthew Borgerson <mborgerson@gmail.com>

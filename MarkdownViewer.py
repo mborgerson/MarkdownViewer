@@ -1,33 +1,21 @@
 #!/usr/bin/env
-"""
-MarkdownViewer
-* Description: MarkdownViewer is a simple Markdown file viewer written in
-  Python. I wanted an easy way to view Markdown files, so I hacked this
-  together...it isn't pretty, but it is functional. The view will be refreshed
-  when the opened file is saved allowing you to use whatever editor you'd like
-  and see the results immediately.
-
-* Dependencies: PyQt4 and Markdown (the Python package).
-
-* Usage: python MarkdownViewer.py <file>
-  To automatically open a Markdown file with this viewer in Windows, associate
-  the filetype with the included .bat file. You can apply themes by dropping
-  your stylesheets in the stylesheets/ directory next to this script and
-  selecting one from the Style menu.
-
-* Note: Feel free to make improvements. Fork and send me a pull request.
-  http://
-
-* Links
- - PyQt4: http://www.riverbankcomputing.com/software/pyqt/download
- - Markdown (available via PIP): http://pypi.python.org/pypi/Markdown
- - Learn more about Markdown and the Markdown syntax here:
-   http://daringfireball.net/projects/markdown/
- - Installed stylesheets from https://github.com/jasonm23/markdown-css-themes
-
-Matthew Borgerson <mborgerson@gmail.com>
-"""
-import sys, time, os, markdown
+"""Simple Markdown file viewer."""
+# Copyright (C) 2013 Matthew Borgerson <mborgerson@gmail.com>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+import codecs, sys, time, os, markdown
 from PyQt4 import QtCore, QtGui, QtWebKit
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
@@ -102,7 +90,7 @@ class WatcherThread(QtCore.QThread):
             current_modified = os.path.getmtime(self.filename)
             if last_modified != current_modified:
                 last_modified = current_modified
-                f = open(self.filename)
+                f = codecs.open(self.filename, encoding='utf-8')
                 html = markdown.markdown(f.read())
                 f.close()
                 self.emit(QtCore.SIGNAL('update(QString)'), html)
